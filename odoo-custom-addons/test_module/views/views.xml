@@ -1,0 +1,128 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="test_tree1">
+      <field name="name">customtest.model.tree</field>
+      <field name="model">customtest.model</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="name"/>
+            <field name="occupation"/>
+            <field name="qualification"/>
+            <field name="state"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="test_form1">
+        <field name="name">customtest.model.form</field>
+        <field name="model">customtest.model</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar" options="{'clickable':'1'}"
+                    status_visible="cart,purchased"/>
+                </header>
+                <group colspan="2" col="2">
+                    <separator string="Name" colspan="2"/>
+                    <field name="name"/>
+                    <separator string="id" colspan="2"/>
+                    <field name="id"/>
+                    <separator string="occupation" colspan="2"/>
+                    <field name="occupation"/>
+                    <separator string="qualification" colspan="2"/>
+                    <field name="qualification"/>
+                </group>
+            </form>
+        </field>
+      </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="action_window">
+      <field name="name">Teachers</field>
+      <field name="res_model">customtest.model</field>
+      <field name="view_id" ref="test_tree1"/>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="xml">
+              <p class="o_view_nocontent_smiling_face">
+                Happy learning!!
+              </p>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="sale.action_orders">
+      <field name="name">Books Order</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="sale.action_quotations_with_onboarding">
+      <field name="name">Sales Order</field>
+    </record>
+
+    <record id="account.action_move_out_invoice_type" model="ir.actions.act_window">
+         <field name="name">Invoices</field>
+    </record>
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="test_module.action_server">
+      <field name="name">test_module server</field>
+      <field name="model_id" ref="model_test_module_test_module"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+
+    <menuitem name="Primary"
+              id="test_module.menu_root"
+              action="sale.action_orders"/>
+
+
+    <!-- menu categories -->
+
+    <menuitem name="pre-primary" id="test_module.menu_1"
+              parent="test_module.menu_root"
+    />
+
+    <menuitem name="Higher Primary"
+              id="test_module.menu_2"
+              parent="test_module.menu_1"
+              action="test_module.action_window"
+    />
+
+    <!-- new menu -->
+
+    <menuitem name="Sales"
+              id="test_module.menu_3"
+              parent="test_module.menu_root"
+              action="sale.action_quotations_with_onboarding"/>
+
+      <menuitem name="Invoicing"
+                  id="test_module.menu_4"
+                  parent="test_module.menu_root"
+                  action="account.action_move_out_invoice_type"/>
+
+      <menuitem name="Invoicing"
+                  id="test_module.menu_4"
+                  parent="test_module.menu_root"
+                  action="account.action_move_out_invoice_type"/>
+
+
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="test_module.menu_1_list" parent="test_module.menu_1"
+              action="test_module.action_window"/>
+    <menuitem name="Server to list" id="test_module" parent="test_module.menu_2"
+              action="test_module.action_server"/>
+-->
+  </data>
+</odoo>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+           <record model="ir.ui.view" id="Course_Transientviz">
+        <field name="name">Course.Transient.wizard.form</field>
+        <field name="model">Course.Transient</field>
+        <field name="arch" type="xml">
+            <form>
+               <field name="name"/>
+            </form>
+        </field>
+      </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="action_window">
+      <field name="name">New Teacher</field>
+      <field name="res_model">Course.Transient.model</field>
+      <field name="view_id" ref="Course_Transientviz"/>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="xml">
+              <p class="o_view_nocontent_smiling_face">
+                Happy learning!!
+              </p>
+      </field>
+    </record>
+
+    </data>
+</odoo>
