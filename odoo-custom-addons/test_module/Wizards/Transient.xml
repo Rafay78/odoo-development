@@ -2,29 +2,32 @@
 <odoo>
     <data>
 
-           <record model="ir.ui.view" id="Course_Transientviz">
-        <field name="name">Course.Transient.wizard.form</field>
-        <field name="model">Course.Transient</field>
+         <record id="Course_Transientviz" model="ir.ui.view">
+        <field name="name">Create Teacher</field>
+        <field name="model">course.transient</field>
         <field name="arch" type="xml">
-            <form>
-               <field name="name"/>
+            <form string="Choose your date">
+                <group>
+                    <field name="name"/>
+                </group>
+                <footer>
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
             </form>
         </field>
-      </record>
+    </record>
+
 
     <!-- actions opening views on models -->
 
-    <record model="ir.actions.act_window" id="action_window">
-      <field name="name">New Teacher</field>
-      <field name="res_model">Course.Transient.model</field>
-      <field name="view_id" ref="Course_Transientviz"/>
-      <field name="view_mode">tree,form</field>
-      <field name="help" type="xml">
-              <p class="o_view_nocontent_smiling_face">
-                Happy learning!!
-              </p>
-      </field>
-    </record>
+        <record model="ir.actions.act_window" id="action_window_trans_mod">
+            <field name="name">New Teacher</field>
+            <field name="res_model">course.transient</field>
+            <field name="view_mode">form</field>
+            <field name="binding_view_types">form</field>
+            <field name="view_id" ref="Course_Transientviz"/>
+            <field name="target">new</field>
+        </record>
 
     </data>
 </odoo>

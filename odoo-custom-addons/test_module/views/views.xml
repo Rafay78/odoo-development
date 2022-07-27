@@ -96,13 +96,20 @@
     <menuitem name="Higher Primary"
               id="test_module.menu_2"
               parent="test_module.menu_1"
-              action="test_module.action_window"
+              action="test_module.action_window"/>
+
+
+    <menuitem name="Create Higher Primary"
+              id="test_module.menu_34"
+              parent="test_module.menu_1"
+              action="action_window_trans_mod"
     />
+
 
     <!-- new menu -->
 
     <menuitem name="Sales"
-              id="test_module.menu_3"
+              id="test_module.menu_300"
               parent="test_module.menu_root"
               action="sale.action_quotations_with_onboarding"/>
 
@@ -111,10 +118,10 @@
                   parent="test_module.menu_root"
                   action="account.action_move_out_invoice_type"/>
 
-      <menuitem name="Invoicing"
-                  id="test_module.menu_4"
-                  parent="test_module.menu_root"
-                  action="account.action_move_out_invoice_type"/>
+<!--      <menuitem name="Invoicing"-->
+<!--                  id="test_module.menu_4"-->
+<!--                  parent="test_module.menu_root"-->
+<!--                  action="account.action_move_out_invoice_type"/>-->
 
 
     <!-- actions -->

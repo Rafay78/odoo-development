@@ -28,6 +28,7 @@
         'views/views.xml',
         'views/templates.xml',
         'views/views2.xml',
+        'Wizards/Transient.xml'
     ],
     # only loaded in demonstration mode
     'demo': [
